@@ -95,7 +95,7 @@
     padding-top: 72px;
     background:
       linear-gradient(to right, rgba(13,13,13,0.92) 50%, rgba(13,13,13,0.5)),
-      url('https://images.unsplash.com/photo-1489171078254-c3365d6e359f?w=1600&q=80') center/cover no-repeat;
+      url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=1600&q=80') center/cover no-repeat;
   }
   .hero-inner { max-width: 680px; }
   .hero-eyebrow {
@@ -183,21 +183,6 @@
     font-size: 0.8rem; font-weight: 900; flex-shrink: 0;
   }
   .why-text { color: var(--muted); margin-bottom: 16px; line-height: 1.8; }
-
-  /* ── PROJECTS ── */
-  #projects { background: var(--dark2); }
-  .projects-header { text-align: center; margin-bottom: 48px; }
-  .gallery {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-  }
-  .gallery-item { overflow: hidden; border-radius: 8px; aspect-ratio: 4/3; }
-  .gallery-item img {
-    width: 100%; height: 100%; object-fit: cover;
-    transition: transform 0.4s ease;
-  }
-  .gallery-item:hover img { transform: scale(1.05); }
 
   /* ── TEAM ── */
   #team { background: var(--dark); text-align: center; }
@@ -360,7 +345,7 @@
   <ul class="nav-links" id="navLinks">
     <li><a href="#services">Services</a></li>
     <li><a href="#why">About Us</a></li>
-    <li><a href="#projects">Projects</a></li>
+
     <li><a href="#contact">Contact Us</a></li>
   </ul>
   <div class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menu">
@@ -499,25 +484,6 @@
     <p class="why-text">Our track record speaks volumes. We bring years of experience, skilled craftsmanship, and a passion for quality to every project. Whether you're envisioning a stunning outdoor space, a secure fence, a resilient roof, or a beautifully finished basement, we're here to turn your vision into reality.</p>
     <p class="why-text">Execute Construction is your trusted partner for reliable, efficient, and top-notch construction services. We prioritize your satisfaction, offering competitive pricing, timely project completion, and a commitment to exceeding your expectations.</p>
     <a href="#contact" class="btn" style="margin-top:8px;">Get a Free Estimate</a>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="projects-header">
-    <p class="section-label">Portfolio</p>
-    <h2 class="section-title">Our Latest <em>Projects</em></h2>
-  </div>
-  <div class="gallery">
-    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1516880711640-ef7db81be3e1?w=600&q=80" alt="Project" loading="lazy"></div>
-    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1606291262429-c80d9f88e4a7?w=600&q=80" alt="Project" loading="lazy"></div>
-    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1643509963821-563d2ddb0812?w=600&q=80" alt="Project" loading="lazy"></div>
-    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1493671441230-098b0a435b30?w=600&q=80" alt="Project" loading="lazy"></div>
-    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1482748547759-153ca0e773ff?w=600&q=80" alt="Project" loading="lazy"></div>
-    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1508262386378-fd80e3440020?w=600&q=80" alt="Project" loading="lazy"></div>
-    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1532348260545-b021ade9c70d?w=600&q=80" alt="Project" loading="lazy"></div>
-    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1649686832779-4c8c46c6c190?w=600&q=80" alt="Project" loading="lazy"></div>
-    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1630608354129-6a7704150401?w=600&q=80" alt="Project" loading="lazy"></div>
   </div>
 </section>
 
@@ -765,14 +731,31 @@
   }, { threshold: 0.3 });
   observer.observe(counterSection);
 
+  // Google Sheets endpoint — paste your Apps Script web app URL here
+  const SHEETS_URL = 'YOUR_APPS_SCRIPT_URL_HERE';
+
   // Form submit handler
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    const btn = e.target.querySelector('button[type="submit"]');
-    btn.textContent = 'Sent! We\'ll be in touch.';
-    btn.style.background = '#2a7a2a';
-    btn.style.color = '#fff';
+    const form = e.target;
+    const btn = form.querySelector('button[type="submit"]');
+    const data = Object.fromEntries(new FormData(form).entries());
+    btn.textContent = 'Sending…';
     btn.disabled = true;
+    try {
+      await fetch(SHEETS_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      btn.textContent = 'Sent! We\'ll be in touch.';
+      btn.style.background = '#2a7a2a';
+      btn.style.color = '#fff';
+    } catch {
+      btn.textContent = 'Error — please try again';
+      btn.disabled = false;
+    }
   }
 </script>
 </body>
