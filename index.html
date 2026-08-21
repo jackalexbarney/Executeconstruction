@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Transform your property with our top-tier construction services. We specialize in basement finishing, home remodels, custom decks, landscaping, irrigation, fencing, concrete, roofing, and custom builds.">
+<title>Execute Construction - Utah's Best Home Remodels</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold: #c9a84c;
+    --dark: #0d0d0d;
+    --dark2: #161616;
+    --dark3: #1e1e1e;
+    --text: #f0f0f0;
+    --muted: #aaa;
+    --radius: 6px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: var(--dark);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(13,13,13,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%;
+    height: 72px;
+  }
+  .nav-logo img { height: 48px; object-fit: contain; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.9rem; font-weight: 500; letter-spacing: 0.04em;
+    color: var(--text); text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .hamburger span { width: 24px; height: 2px; background: var(--text); transition: 0.3s; }
+
+  /* ── BUTTONS ── */
+  .btn {
+    display: inline-block;
+    background: var(--gold);
+    color: #000;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 14px 32px;
+    border-radius: var(--radius);
+    border: none; cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn:hover { background: #e0b85a; transform: translateY(-1px); }
+  .btn-outline {
+    background: transparent;
+    border: 2px solid var(--gold);
+    color: var(--gold);
+  }
+  .btn-outline:hover { background: var(--gold); color: #000; }
+
+  /* ── SECTION SHARED ── */
+  section { padding: 90px 5%; }
+  .section-label {
+    font-size: 0.8rem; font-weight: 600; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 12px;
+  }
+  .section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800; line-height: 1.15;
+    margin-bottom: 1.5rem;
+  }
+  .section-title em { font-style: italic; color: var(--gold); }
+  .section-title strong { font-weight: 900; }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding-top: 72px;
+    background:
+      linear-gradient(to right, rgba(13,13,13,0.92) 50%, rgba(13,13,13,0.5)),
+      url('https://images.unsplash.com/photo-1489171078254-c3365d6e359f?w=1600&q=80') center/cover no-repeat;
+  }
+  .hero-inner { max-width: 680px; }
+  .hero-eyebrow {
+    font-size: 0.85rem; font-weight: 600; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 16px;
+  }
+  .hero-title {
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 900; line-height: 1.05;
+    margin-bottom: 28px;
+  }
+  .hero-title em { font-style: italic; color: var(--gold); }
+  .hero-sub {
+    font-size: 1.1rem; color: var(--muted); margin-bottom: 40px; max-width: 480px;
+  }
+
+  /* ── SERVICES ── */
+  #services { background: var(--dark2); }
+  .services-header { text-align: center; margin-bottom: 60px; }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+  }
+  .service-card {
+    position: relative; overflow: hidden; border-radius: 10px;
+    aspect-ratio: 4/3;
+    cursor: pointer;
+  }
+  .service-card img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  .service-card:hover img { transform: scale(1.06); }
+  .service-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 40%, rgba(0,0,0,0.1));
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 28px;
+    transition: background 0.3s;
+  }
+  .service-card:hover .service-overlay {
+    background: linear-gradient(to top, rgba(0,0,0,0.92) 50%, rgba(0,0,0,0.3));
+  }
+  .service-num {
+    font-size: 3rem; font-weight: 900; color: rgba(201,168,76,0.3);
+    line-height: 1; margin-bottom: 6px;
+  }
+  .service-name {
+    font-size: 1.4rem; font-weight: 800; margin-bottom: 8px;
+  }
+  .service-desc {
+    font-size: 0.85rem; color: var(--muted); margin-bottom: 16px; line-height: 1.5;
+  }
+  .service-btn {
+    align-self: flex-start;
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--gold);
+    border: 1px solid var(--gold); padding: 8px 18px; border-radius: 4px;
+    transition: background 0.2s, color 0.2s;
+    opacity: 0; transform: translateY(8px);
+    transition: opacity 0.3s, transform 0.3s, background 0.2s;
+  }
+  .service-card:hover .service-btn { opacity: 1; transform: translateY(0); }
+  .service-btn:hover { background: var(--gold); color: #000; }
+
+  /* ── WHY US ── */
+  #why {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    background: var(--dark);
+  }
+  .why-image { border-radius: 12px; overflow: hidden; }
+  .why-image img { width: 100%; height: 500px; object-fit: cover; }
+  .why-bullets { list-style: none; margin-bottom: 32px; }
+  .why-bullets li {
+    display: flex; align-items: center; gap: 12px;
+    font-size: 1rem; font-weight: 600; padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .why-bullets li::before {
+    content: '✓';
+    width: 24px; height: 24px; border-radius: 50%;
+    background: var(--gold); color: #000;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.8rem; font-weight: 900; flex-shrink: 0;
+  }
+  .why-text { color: var(--muted); margin-bottom: 16px; line-height: 1.8; }
+
+  /* ── PROJECTS ── */
+  #projects { background: var(--dark2); }
+  .projects-header { text-align: center; margin-bottom: 48px; }
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .gallery-item { overflow: hidden; border-radius: 8px; aspect-ratio: 4/3; }
+  .gallery-item img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+  .gallery-item:hover img { transform: scale(1.05); }
+
+  /* ── TEAM ── */
+  #team { background: var(--dark); text-align: center; }
+  .team-header { margin-bottom: 56px; }
+  .team-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px;
+  }
+  .team-card { }
+  .team-photo {
+    width: 100%; aspect-ratio: 3/4; object-fit: cover;
+    border-radius: 10px; margin-bottom: 16px;
+    transition: transform 0.3s;
+  }
+  .team-card:hover .team-photo { transform: scale(1.02); }
+  .team-name { font-size: 1.1rem; font-weight: 700; }
+  .team-role { font-size: 0.85rem; color: var(--gold); margin-top: 4px; }
+
+  /* ── STATS BAR ── */
+  #stats {
+    background: var(--gold);
+    padding: 60px 5%;
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 40px; text-align: center;
+  }
+  .stat-item { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .stat-icon { width: 48px; height: 48px; object-fit: contain; }
+  .stat-num { font-size: 2.5rem; font-weight: 900; color: #000; }
+  .stat-label { font-size: 0.85rem; font-weight: 700; color: rgba(0,0,0,0.7); text-transform: uppercase; letter-spacing: 0.08em; }
+
+  /* ── CONTACT FORM ── */
+  #contact { background: var(--dark3); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+  .form-title { font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 800; margin-bottom: 8px; }
+  .form-title strong { color: var(--gold); }
+  .form-sub { color: var(--muted); margin-bottom: 36px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { margin-bottom: 20px; }
+  .form-group label { display: block; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: var(--radius);
+    color: var(--text);
+    font-size: 0.95rem;
+    padding: 12px 16px;
+    outline: none;
+    transition: border-color 0.2s;
+    font-family: inherit;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: var(--gold); }
+  .form-group textarea { min-height: 110px; resize: vertical; }
+  .form-group select option { background: #1e1e1e; }
+  .form-consent { font-size: 0.78rem; color: var(--muted); margin-bottom: 24px; }
+  .form-consent a { color: var(--gold); }
+  .contact-image img { width: 100%; border-radius: 12px; object-fit: cover; height: 500px; }
+
+  /* ── TESTIMONIALS ── */
+  #testimonials { background: var(--dark2); text-align: center; }
+  .testimonials-header { margin-bottom: 56px; }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .testimonial-card {
+    background: var(--dark3);
+    border: 1px solid rgba(201,168,76,0.15);
+    border-radius: 12px; padding: 32px;
+    text-align: left;
+  }
+  .testimonial-quote {
+    font-size: 2rem; color: var(--gold); line-height: 1; margin-bottom: 16px;
+  }
+  .testimonial-text { color: var(--muted); line-height: 1.7; margin-bottom: 28px; font-size: 0.95rem; }
+  .testimonial-author { display: flex; align-items: center; gap: 14px; }
+  .testimonial-avatar { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; }
+  .testimonial-name { font-weight: 700; font-size: 0.95rem; }
+  .testimonial-role { font-size: 0.78rem; color: var(--gold); }
+
+  /* ── COUNTER STATS ── */
+  #counter {
+    background: var(--dark);
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 0; text-align: center; padding: 80px 5%;
+  }
+  .counter-item { padding: 20px; border-right: 1px solid rgba(255,255,255,0.07); }
+  .counter-item:last-child { border-right: none; }
+  .counter-num { font-size: 3.5rem; font-weight: 900; color: var(--gold); line-height: 1; }
+  .counter-label { font-size: 0.85rem; color: var(--muted); margin-top: 8px; text-transform: uppercase; letter-spacing: 0.08em; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #080808;
+    border-top: 1px solid rgba(201,168,76,0.2);
+    padding: 72px 5% 40px;
+  }
+  .footer-grid {
+    display: grid; grid-template-columns: 2fr 1fr 1fr;
+    gap: 60px; margin-bottom: 56px;
+  }
+  .footer-logo img { height: 52px; margin-bottom: 20px; }
+  .footer-desc { color: var(--muted); font-size: 0.9rem; line-height: 1.7; max-width: 320px; }
+  .footer-col-title { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+  .footer-info { list-style: none; }
+  .footer-info li { color: var(--muted); font-size: 0.9rem; margin-bottom: 10px; line-height: 1.5; }
+  .footer-info li strong { color: var(--text); }
+  .footer-map { border-radius: 10px; overflow: hidden; margin-top: 24px; }
+  .footer-map iframe { width: 100%; height: 220px; border: none; }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding-top: 28px;
+    display: flex; justify-content: space-between; align-items: center;
+    color: var(--muted); font-size: 0.82rem;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    #why { grid-template-columns: 1fr; }
+    .why-image { display: none; }
+    .team-grid { grid-template-columns: repeat(2, 1fr); }
+    .counter-grid { grid-template-columns: repeat(2, 1fr); }
+    #counter { grid-template-columns: repeat(2, 1fr); }
+    .counter-item:nth-child(2) { border-right: none; }
+    .counter-item:nth-child(3) { border-top: 1px solid rgba(255,255,255,0.07); }
+    .counter-item:nth-child(4) { border-top: 1px solid rgba(255,255,255,0.07); border-right: none; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .footer-grid > :first-child { grid-column: 1 / -1; }
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 4%; }
+    .nav-links { display: none; flex-direction: column; position: absolute; top: 72px; left: 0; right: 0; background: var(--dark); padding: 20px 5%; gap: 1rem; border-bottom: 1px solid rgba(201,168,76,0.2); }
+    .nav-links.open { display: flex; }
+    .hamburger { display: flex; }
+    section { padding: 60px 4%; }
+    .services-grid { grid-template-columns: 1fr; }
+    .gallery { grid-template-columns: repeat(2, 1fr); }
+    .team-grid { grid-template-columns: repeat(2, 1fr); }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .contact-image { display: none; }
+    #stats { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+    .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+    #hero { background-position: center right; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-logo">
+    <a href="#hero">
+      <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/6z8UkAx1PMMQKNGCvSVA/media/651454626f444380473cd3da.png" alt="Execute Construction">
+    </a>
+  </div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">About Us</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact Us</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Utah's Best Choice For</p>
+    <h1 class="hero-title">
+      <em>Home</em><br>Services
+    </h1>
+    <p class="hero-sub">Expert craftsmanship for every project — from basements to rooftops, decks to driveways.</p>
+    <a href="#contact" class="btn">Free Estimate</a>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header">
+    <p class="section-label">What We Do</p>
+    <h2 class="section-title"><strong>Whatever</strong> Your Home Project is,<br><em>We Have You Covered</em></h2>
+  </div>
+  <div class="services-grid">
+
+    <div class="service-card">
+      <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/6z8UkAx1PMMQKNGCvSVA/media/64fb4ae273285c1cb46bab90.jpeg" alt="Basement Finishing" loading="lazy">
+      <div class="service-overlay">
+        <div class="service-num">01</div>
+        <div class="service-name">Basement Finishing</div>
+        <div class="service-desc">Unlock the full potential of your basement with our expert finishing services, creating a stylish and functional living space.</div>
+        <a href="#contact" class="service-btn">Free Estimate</a>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/6z8UkAx1PMMQKNGCvSVA/media/64fb4ae2fc1b65d876946fb0.jpeg" alt="Decking" loading="lazy">
+      <div class="service-overlay">
+        <div class="service-num">02</div>
+        <div class="service-name">Decking</div>
+        <div class="service-desc">Elevate your outdoor living with our premium decking solutions. Create the perfect space for relaxation and entertainment.</div>
+        <a href="#contact" class="service-btn">Free Estimate</a>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/6z8UkAx1PMMQKNGCvSVA/media/64fb4ae2fc1b6587be946faf.jpeg" alt="Concrete" loading="lazy">
+      <div class="service-overlay">
+        <div class="service-num">03</div>
+        <div class="service-name">Concrete</div>
+        <div class="service-desc">From foundations to finishing touches, our concrete services ensure the durability and precision your projects deserve.</div>
+        <a href="#contact" class="service-btn">Free Estimate</a>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/6z8UkAx1PMMQKNGCvSVA/media/64fb4ae23c72620333d80fa0.jpeg" alt="Fencing" loading="lazy">
+      <div class="service-overlay">
+        <div class="service-num">04</div>
+        <div class="service-name">Fencing</div>
+        <div class="service-desc">Elevate your space with our expert fencing services for added security and style.</div>
+        <a href="#contact" class="service-btn">Free Estimate</a>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/6z8UkAx1PMMQKNGCvSVA/media/64fb4ae23c7262a2e9d80fa1.jpeg" alt="Landscaping" loading="lazy">
+      <div class="service-overlay">
+        <div class="service-num">05</div>
+        <div class="service-name">Landscaping</div>
+        <div class="service-desc">Revitalize your outdoor space with our expert landscaping services for a breathtaking natural haven.</div>
+        <a href="#contact" class="service-btn">Free Estimate</a>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/6z8UkAx1PMMQKNGCvSVA/media/64fb4ae23c726223edd80f9f.jpeg" alt="Irrigation" loading="lazy">
+      <div class="service-overlay">
+        <div class="service-num">06</div>
+        <div class="service-name">Irrigation</div>
+        <div class="service-desc">Efficient irrigation and sprinkler systems for lush, hassle-free landscapes. Make every drop count!</div>
+        <a href="#contact" class="service-btn">Free Estimate</a>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/6z8UkAx1PMMQKNGCvSVA/media/64fb4cc9c42c8175c7a40ca0.jpeg" alt="Roofing" loading="lazy">
+      <div class="service-overlay">
+        <div class="service-num">07</div>
+        <div class="service-name">Roofing</div>
+        <div class="service-desc">Elevate your home's protection and curb appeal with our top-tier roofing solutions. Covering you, beautifully.</div>
+        <a href="#contact" class="service-btn">Free Estimate</a>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/6z8UkAx1PMMQKNGCvSVA/media/64fb4ae273285cd1156bab91.jpeg" alt="Remodels" loading="lazy">
+      <div class="service-overlay">
+        <div class="service-num">08</div>
+        <div class="service-name">Remodels</div>
+        <div class="service-desc">Transform your space into a dream home with our expert remodeling services. Your vision, our expertise.</div>
+        <a href="#contact" class="service-btn">Free Estimate</a>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/6z8UkAx1PMMQKNGCvSVA/media/64fb4d0cfc1b650f65947320.jpeg" alt="Additional Services" loading="lazy">
+      <div class="service-overlay">
+        <div class="service-num">09</div>
+        <div class="service-name">Additional Services</div>
+        <div class="service-desc">Don't see your project here? Reach out and we will see how we can help.</div>
+        <a href="#contact" class="service-btn">Free Estimate</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why">
+  <div class="why-image">
+    <img src="https://images.unsplash.com/photo-1513467535987-fd81bc7d62f8?w=800&q=80" alt="Construction work">
+  </div>
+  <div class="why-content">
+    <p class="section-label">Why Choose Us</p>
+    <h2 class="section-title"><strong>Why choose</strong> us for your all <em>custom builds</em></h2>
+    <ul class="why-bullets">
+      <li>Quality Craftsmanship</li>
+      <li>Timely Delivery</li>
+      <li>Competitive Pricing</li>
+      <li>Personalized Approach</li>
+      <li>Proven Track Record</li>
+    </ul>
+    <p class="why-text">Our track record speaks volumes. We bring years of experience, skilled craftsmanship, and a passion for quality to every project. Whether you're envisioning a stunning outdoor space, a secure fence, a resilient roof, or a beautifully finished basement, we're here to turn your vision into reality.</p>
+    <p class="why-text">Execute Construction is your trusted partner for reliable, efficient, and top-notch construction services. We prioritize your satisfaction, offering competitive pricing, timely project completion, and a commitment to exceeding your expectations.</p>
+    <a href="#contact" class="btn" style="margin-top:8px;">Get a Free Estimate</a>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="projects-header">
+    <p class="section-label">Portfolio</p>
+    <h2 class="section-title">Our Latest <em>Projects</em></h2>
+  </div>
+  <div class="gallery">
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1516880711640-ef7db81be3e1?w=600&q=80" alt="Project" loading="lazy"></div>
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1606291262429-c80d9f88e4a7?w=600&q=80" alt="Project" loading="lazy"></div>
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1643509963821-563d2ddb0812?w=600&q=80" alt="Project" loading="lazy"></div>
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1493671441230-098b0a435b30?w=600&q=80" alt="Project" loading="lazy"></div>
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1482748547759-153ca0e773ff?w=600&q=80" alt="Project" loading="lazy"></div>
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1508262386378-fd80e3440020?w=600&q=80" alt="Project" loading="lazy"></div>
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1532348260545-b021ade9c70d?w=600&q=80" alt="Project" loading="lazy"></div>
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1649686832779-4c8c46c6c190?w=600&q=80" alt="Project" loading="lazy"></div>
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1630608354129-6a7704150401?w=600&q=80" alt="Project" loading="lazy"></div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="team-header">
+    <p class="section-label">The People Behind the Work</p>
+    <h2 class="section-title">Our <em>Team</em></h2>
+  </div>
+  <div class="team-grid">
+    <div class="team-card">
+      <img class="team-photo" src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?w=400&q=80" alt="Team Member">
+      <div class="team-name">John Doe</div>
+      <div class="team-role">Project Manager</div>
+    </div>
+    <div class="team-card">
+      <img class="team-photo" src="https://images.unsplash.com/photo-1546215364-12f3fff5d578?w=400&q=80" alt="Team Member">
+      <div class="team-name">John Doe</div>
+      <div class="team-role">Lead Contractor</div>
+    </div>
+    <div class="team-card">
+      <img class="team-photo" src="https://images.unsplash.com/photo-1522556189639-b150ed9c4330?w=400&q=80" alt="Team Member">
+      <div class="team-name">John Doe</div>
+      <div class="team-role">Design Specialist</div>
+    </div>
+    <div class="team-card">
+      <img class="team-photo" src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=400&q=80" alt="Team Member">
+      <div class="team-name">John Doe</div>
+      <div class="team-role">Site Supervisor</div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div id="stats">
+  <div class="stat-item">
+    <img class="stat-icon" src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/6z8UkAx1PMMQKNGCvSVA/media/d8ba7cdf-8452-4f72-b3e6-c1892eb683a7.png" alt="">
+    <div class="stat-num">6,493</div>
+    <div class="stat-label">Insured People</div>
+  </div>
+  <div class="stat-item">
+    <img class="stat-icon" src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/6z8UkAx1PMMQKNGCvSVA/media/2bc80fe9-a078-4374-bd79-9631c2d49203.png" alt="">
+    <div class="stat-num">4,896</div>
+    <div class="stat-label">Happy Clients</div>
+  </div>
+  <div class="stat-item">
+    <img class="stat-icon" src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/6z8UkAx1PMMQKNGCvSVA/media/7d63b913-5c29-4bf1-a3cd-40effb6eaa2d.png" alt="">
+    <div class="stat-num">6,493</div>
+    <div class="stat-label">Handled Cases</div>
+  </div>
+</div>
+
+<!-- CONTACT FORM -->
+<section id="contact">
+  <div class="contact-grid">
+    <div>
+      <p class="section-label">Get Started</p>
+      <h2 class="form-title"><strong>Request</strong> a Free Estimate</h2>
+      <p class="form-sub">Fill out the form below and we'll be in touch within 24 hours.</p>
+      <form onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fname">First Name *</label>
+            <input type="text" id="fname" placeholder="First name" required>
+          </div>
+          <div class="form-group">
+            <label for="lname">Last Name *</label>
+            <input type="text" id="lname" placeholder="Last name" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone *</label>
+          <input type="tel" id="phone" placeholder="(801) 000-0000" required>
+        </div>
+        <div class="form-group">
+          <label for="address">Address *</label>
+          <input type="text" id="address" placeholder="Your address" required>
+        </div>
+        <div class="form-group">
+          <label for="service">Services Offered *</label>
+          <select id="service" required>
+            <option value="" disabled selected>Select a service</option>
+            <option>Basement Finishing</option>
+            <option>Decking</option>
+            <option>Concrete</option>
+            <option>Fencing</option>
+            <option>Landscaping</option>
+            <option>Irrigation</option>
+            <option>Roofing</option>
+            <option>Remodels</option>
+            <option>Additional Services</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">How can we help?</label>
+          <textarea id="message" placeholder="Tell us about your project..."></textarea>
+        </div>
+        <p class="form-consent">I agree to <a href="#">terms &amp; conditions</a> provided by the company. By providing my phone number, I agree to receive text messages from the business.</p>
+        <button type="submit" class="btn">Submit</button>
+      </form>
+    </div>
+    <div class="contact-image">
+      <img src="https://images.unsplash.com/photo-1636057163661-7af808530684?w=700&q=80" alt="Construction">
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="testimonials-header">
+    <p class="section-label">Customer Reviews</p>
+    <h2 class="section-title"><strong>What our</strong> Valuable Customers <em>say about us</em></h2>
+  </div>
+  <div class="testimonials-grid">
+
+    <div class="testimonial-card">
+      <div class="testimonial-quote">"</div>
+      <p class="testimonial-text">Chris worked wonders installing my fence — fast, affordable, and with professional quality. I'm thrilled with the results! Highly recommended for anyone needing fencing expertise. Thanks, Chris!</p>
+      <div class="testimonial-author">
+        <img class="testimonial-avatar" src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/6z8UkAx1PMMQKNGCvSVA/media/18cdd304-22fa-48d1-8cf3-812f0367ada0.png" alt="Jack Barney">
+        <div>
+          <div class="testimonial-name">Jack Barney</div>
+          <div class="testimonial-role">Customer Feedback</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="testimonial-quote">"</div>
+      <p class="testimonial-text">I am beyond impressed with the landscaping job done at my home! The attention to detail, creativity, and professionalism displayed were outstanding. My outdoor space has been transformed. Thank you for the fantastic work!</p>
+      <div class="testimonial-author">
+        <img class="testimonial-avatar" src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/6z8UkAx1PMMQKNGCvSVA/media/3daac6c9-1c46-4bc7-ade8-47196fca4bf7.png" alt="Rachel Walton">
+        <div>
+          <div class="testimonial-name">Rachel Walton</div>
+          <div class="testimonial-role">Customer Feedback</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="testimonial-quote">"</div>
+      <p class="testimonial-text">Absolutely thrilled with the concrete work and patio created by Chris and his team. The craftsmanship is superb, and the attention to every detail is evident. My outdoor space is perfect. Highly recommend!</p>
+      <div class="testimonial-author">
+        <img class="testimonial-avatar" src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/6z8UkAx1PMMQKNGCvSVA/media/391ca8e4-f2eb-4f61-9b04-2b09b4855243.png" alt="Cara Wandtke">
+        <div>
+          <div class="testimonial-name">Cara Wandtke</div>
+          <div class="testimonial-role">Customer Feedback</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- COUNTER -->
+<div id="counter">
+  <div class="counter-item">
+    <div class="counter-num" data-target="8705">0</div>
+    <div class="counter-label">Projects Completed</div>
+  </div>
+  <div class="counter-item">
+    <div class="counter-num" data-target="480">0</div>
+    <div class="counter-label">Active Clients</div>
+  </div>
+  <div class="counter-item">
+    <div class="counter-num" data-target="6260">0</div>
+    <div class="counter-label">Cups of Coffee</div>
+  </div>
+  <div class="counter-item">
+    <div class="counter-num" data-target="9774">0</div>
+    <div class="counter-label">Happy Clients</div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/6z8UkAx1PMMQKNGCvSVA/media/651454626f444380473cd3da.png" alt="Execute Construction" class="footer-logo" style="height:52px;margin-bottom:20px;">
+      <p class="footer-desc">Utah's trusted construction partner. From basement finishing to full remodels, we deliver quality craftsmanship on every project.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact Info</div>
+      <ul class="footer-info">
+        <li><strong>Email:</strong> info@executeconstruction.co</li>
+        <li><strong>Phone:</strong> 801-610-9432</li>
+        <li><strong>Serving:</strong> Utah &amp; Arizona</li>
+        <li><strong>Hours:</strong> Mon–Sat 9am–8pm<br>Sunday Closed</li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Location</div>
+      <div class="footer-map">
+        <iframe src="https://maps.google.com/maps?width=300&height=220&hl=en&q=Utah&t=&z=6&ie=UTF8&iwloc=B&output=embed" title="Map of Utah" loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 Execute Construction. All rights reserved.</span>
+    <span>www.executeconstruction.co</span>
+  </div>
+</footer>
+
+<script>
+  function toggleNav() {
+    document.getElementById('navLinks').classList.toggle('open');
+  }
+
+  // Close nav on link click (mobile)
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.getElementById('navLinks').classList.remove('open');
+    });
+  });
+
+  // Sticky nav shadow
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    nav.style.boxShadow = window.scrollY > 20 ? '0 2px 20px rgba(0,0,0,0.6)' : 'none';
+  });
+
+  // Counter animation
+  function animateCounters() {
+    document.querySelectorAll('.counter-num[data-target]').forEach(el => {
+      const target = parseInt(el.dataset.target);
+      const duration = 2000;
+      const step = target / (duration / 16);
+      let current = 0;
+      const timer = setInterval(() => {
+        current = Math.min(current + step, target);
+        el.textContent = Math.floor(current).toLocaleString();
+        if (current >= target) clearInterval(timer);
+      }, 16);
+    });
+  }
+
+  // Trigger counters when in view
+  const counterSection = document.getElementById('counter');
+  let counted = false;
+  const observer = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting && !counted) {
+      counted = true;
+      animateCounters();
+    }
+  }, { threshold: 0.3 });
+  observer.observe(counterSection);
+
+  // Form submit handler
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type="submit"]');
+    btn.textContent = 'Sent! We\'ll be in touch.';
+    btn.style.background = '#2a7a2a';
+    btn.style.color = '#fff';
+    btn.disabled = true;
+  }
+</script>
+</body>
+</html>
