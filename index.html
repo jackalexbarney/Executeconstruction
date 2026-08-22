@@ -9,12 +9,12 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --gold: #c9a84c;
-    --dark: #0d0d0d;
-    --dark2: #161616;
-    --dark3: #1e1e1e;
+    --orange: #f05523;
+    --dark: #253041;
+    --dark2: #1d2838;
+    --dark3: #2a3135;
     --text: #f0f0f0;
-    --muted: #aaa;
+    --muted: #8fa0ae;
     --radius: 6px;
   }
 
@@ -34,9 +34,9 @@
   /* â”€â”€ NAV â”€â”€ */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: rgba(13,13,13,0.95);
+    background: rgba(37,48,65,0.97);
     backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(201,168,76,0.2);
+    border-bottom: 1px solid rgba(240,85,35,0.2);
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 5%;
     height: 72px;
@@ -48,14 +48,14 @@
     color: var(--text); text-transform: uppercase;
     transition: color 0.2s;
   }
-  .nav-links a:hover { color: var(--gold); }
+  .nav-links a:hover { color: var(--orange); }
   .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
   .hamburger span { width: 24px; height: 2px; background: var(--text); transition: 0.3s; }
 
   /* â”€â”€ BUTTONS â”€â”€ */
   .btn {
     display: inline-block;
-    background: var(--gold);
+    background: var(--orange);
     color: #000;
     font-weight: 700;
     font-size: 0.85rem;
@@ -66,26 +66,26 @@
     border: none; cursor: pointer;
     transition: background 0.2s, transform 0.15s;
   }
-  .btn:hover { background: #e0b85a; transform: translateY(-1px); }
+  .btn:hover { background: #d44010; transform: translateY(-1px); }
   .btn-outline {
     background: transparent;
-    border: 2px solid var(--gold);
-    color: var(--gold);
+    border: 2px solid var(--orange);
+    color: var(--orange);
   }
-  .btn-outline:hover { background: var(--gold); color: #000; }
+  .btn-outline:hover { background: var(--orange); color: #000; }
 
   /* â”€â”€ SECTION SHARED â”€â”€ */
   section { padding: 90px 5%; }
   .section-label {
     font-size: 0.8rem; font-weight: 600; letter-spacing: 0.15em;
-    text-transform: uppercase; color: var(--gold); margin-bottom: 12px;
+    text-transform: uppercase; color: var(--orange); margin-bottom: 12px;
   }
   .section-title {
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 800; line-height: 1.15;
     margin-bottom: 1.5rem;
   }
-  .section-title em { font-style: italic; color: var(--gold); }
+  .section-title em { font-style: italic; color: var(--orange); }
   .section-title strong { font-weight: 900; }
 
   /* â”€â”€ HERO â”€â”€ */
@@ -94,20 +94,20 @@
     display: flex; align-items: center;
     padding-top: 72px;
     background:
-      linear-gradient(to right, rgba(13,13,13,0.92) 50%, rgba(13,13,13,0.5)),
+      linear-gradient(to right, rgba(37,48,65,0.95) 55%, rgba(37,48,65,0.5)),
       url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=1600&q=80') center/cover no-repeat;
   }
   .hero-inner { max-width: 680px; }
   .hero-eyebrow {
     font-size: 0.85rem; font-weight: 600; letter-spacing: 0.2em;
-    text-transform: uppercase; color: var(--gold); margin-bottom: 16px;
+    text-transform: uppercase; color: var(--orange); margin-bottom: 16px;
   }
   .hero-title {
     font-size: clamp(2.8rem, 6vw, 5rem);
     font-weight: 900; line-height: 1.05;
     margin-bottom: 28px;
   }
-  .hero-title em { font-style: italic; color: var(--gold); }
+  .hero-title em { font-style: italic; color: var(--orange); }
   .hero-sub {
     font-size: 1.1rem; color: var(--muted); margin-bottom: 40px; max-width: 480px;
   }
@@ -141,7 +141,7 @@
     background: linear-gradient(to top, rgba(0,0,0,0.92) 50%, rgba(0,0,0,0.3));
   }
   .service-num {
-    font-size: 3rem; font-weight: 900; color: rgba(201,168,76,0.3);
+    font-size: 3rem; font-weight: 900; color: rgba(240,85,35,0.3);
     line-height: 1; margin-bottom: 6px;
   }
   .service-name {
@@ -153,14 +153,14 @@
   .service-btn {
     align-self: flex-start;
     font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em;
-    text-transform: uppercase; color: var(--gold);
-    border: 1px solid var(--gold); padding: 8px 18px; border-radius: 4px;
+    text-transform: uppercase; color: var(--orange);
+    border: 1px solid var(--orange); padding: 8px 18px; border-radius: 4px;
     transition: background 0.2s, color 0.2s;
     opacity: 0; transform: translateY(8px);
     transition: opacity 0.3s, transform 0.3s, background 0.2s;
   }
   .service-card:hover .service-btn { opacity: 1; transform: translateY(0); }
-  .service-btn:hover { background: var(--gold); color: #000; }
+  .service-btn:hover { background: var(--orange); color: #000; }
 
   /* â”€â”€ WHY US â”€â”€ */
   #why {
@@ -178,7 +178,7 @@
   .why-bullets li::before {
     content: 'âœ“';
     width: 24px; height: 24px; border-radius: 50%;
-    background: var(--gold); color: #000;
+    background: var(--orange); color: #000;
     display: flex; align-items: center; justify-content: center;
     font-size: 0.8rem; font-weight: 900; flex-shrink: 0;
   }
@@ -198,11 +198,11 @@
   }
   .team-card:hover .team-photo { transform: scale(1.02); }
   .team-name { font-size: 1.1rem; font-weight: 700; }
-  .team-role { font-size: 0.85rem; color: var(--gold); margin-top: 4px; }
+  .team-role { font-size: 0.85rem; color: var(--orange); margin-top: 4px; }
 
   /* â”€â”€ STATS BAR â”€â”€ */
   #stats {
-    background: var(--gold);
+    background: var(--orange);
     padding: 60px 5%;
     display: grid; grid-template-columns: repeat(3, 1fr);
     gap: 40px; text-align: center;
@@ -216,7 +216,7 @@
   #contact { background: var(--dark3); }
   .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
   .form-title { font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 800; margin-bottom: 8px; }
-  .form-title strong { color: var(--gold); }
+  .form-title strong { color: var(--orange); }
   .form-sub { color: var(--muted); margin-bottom: 36px; }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   .form-group { margin-bottom: 20px; }
@@ -237,11 +237,11 @@
   }
   .form-group input:focus,
   .form-group select:focus,
-  .form-group textarea:focus { border-color: var(--gold); }
+  .form-group textarea:focus { border-color: var(--orange); }
   .form-group textarea { min-height: 110px; resize: vertical; }
   .form-group select option { background: #1e1e1e; }
   .form-consent { font-size: 0.78rem; color: var(--muted); margin-bottom: 24px; }
-  .form-consent a { color: var(--gold); }
+  .form-consent a { color: var(--orange); }
   .contact-image img { width: 100%; border-radius: 12px; object-fit: cover; height: 500px; }
 
   /* â”€â”€ TESTIMONIALS â”€â”€ */
@@ -250,18 +250,18 @@
   .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
   .testimonial-card {
     background: var(--dark3);
-    border: 1px solid rgba(201,168,76,0.15);
+    border: 1px solid rgba(240,85,35,0.15);
     border-radius: 12px; padding: 32px;
     text-align: left;
   }
   .testimonial-quote {
-    font-size: 2rem; color: var(--gold); line-height: 1; margin-bottom: 16px;
+    font-size: 2rem; color: var(--orange); line-height: 1; margin-bottom: 16px;
   }
   .testimonial-text { color: var(--muted); line-height: 1.7; margin-bottom: 28px; font-size: 0.95rem; }
   .testimonial-author { display: flex; align-items: center; gap: 14px; }
   .testimonial-avatar { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; }
   .testimonial-name { font-weight: 700; font-size: 0.95rem; }
-  .testimonial-role { font-size: 0.78rem; color: var(--gold); }
+  .testimonial-role { font-size: 0.78rem; color: var(--orange); }
 
   /* â”€â”€ COUNTER STATS â”€â”€ */
   #counter {
@@ -271,13 +271,13 @@
   }
   .counter-item { padding: 20px; border-right: 1px solid rgba(255,255,255,0.07); }
   .counter-item:last-child { border-right: none; }
-  .counter-num { font-size: 3.5rem; font-weight: 900; color: var(--gold); line-height: 1; }
+  .counter-num { font-size: 3.5rem; font-weight: 900; color: var(--orange); line-height: 1; }
   .counter-label { font-size: 0.85rem; color: var(--muted); margin-top: 8px; text-transform: uppercase; letter-spacing: 0.08em; }
 
   /* â”€â”€ FOOTER â”€â”€ */
   footer {
-    background: #080808;
-    border-top: 1px solid rgba(201,168,76,0.2);
+    background: #1a2535;
+    border-top: 1px solid rgba(240,85,35,0.2);
     padding: 72px 5% 40px;
   }
   .footer-grid {
@@ -286,7 +286,7 @@
   }
   .footer-logo img { height: 52px; margin-bottom: 20px; }
   .footer-desc { color: var(--muted); font-size: 0.9rem; line-height: 1.7; max-width: 320px; }
-  .footer-col-title { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+  .footer-col-title { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--orange); margin-bottom: 20px; }
   .footer-info { list-style: none; }
   .footer-info li { color: var(--muted); font-size: 0.9rem; margin-bottom: 10px; line-height: 1.5; }
   .footer-info li strong { color: var(--text); }
@@ -315,7 +315,7 @@
 
   @media (max-width: 768px) {
     nav { padding: 0 4%; }
-    .nav-links { display: none; flex-direction: column; position: absolute; top: 72px; left: 0; right: 0; background: var(--dark); padding: 20px 5%; gap: 1rem; border-bottom: 1px solid rgba(201,168,76,0.2); }
+    .nav-links { display: none; flex-direction: column; position: absolute; top: 72px; left: 0; right: 0; background: var(--dark); padding: 20px 5%; gap: 1rem; border-bottom: 1px solid rgba(240,85,35,0.2); }
     .nav-links.open { display: flex; }
     .hamburger { display: flex; }
     section { padding: 60px 4%; }
@@ -554,36 +554,7 @@
             <input type="text" id="lname" placeholder="Last name" required>
           </div>
         </div>
-        <div class="form-group">
-          <label for="phone">Phone *</label>
-          <input type="tel" id="phone" placeholder="(801) 000-0000" required>
-        </div>
-        <div class="form-group">
-          <label for="address">Address *</label>
-          <input type="text" id="address" placeholder="Your address" required>
-        </div>
-        <div class="form-group">
-          <label for="service">Services Offered *</label>
-          <select id="service" required>
-            <option value="" disabled selected>Select a service</option>
-            <option>Basement Finishing</option>
-            <option>Decking</option>
-            <option>Concrete</option>
-            <option>Fencing</option>
-            <option>Landscaping</option>
-            <option>Irrigation</option>
-            <option>Roofing</option>
-            <option>Remodels</option>
-            <option>Additional Services</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="message">How can we help?</label>
-          <textarea id="message" placeholder="Tell us about your project..."></textarea>
-        </div>
-        <p class="form-consent">I agree to <a href="#">terms &amp; conditions</a> provided by the company. By providing my phone number, I agree to receive text messages from the business.</p>
-        <button type="submit" class="btn">Submit</button>
-      </form>
+        <div class=½É´€€€€€€€€€€ñ±…‰•°™½Èô‰…‘‘É•ÍÌˆù‘‘É•ÍÌ€¨ð½±…‰•°ø(€€€€€€€€€€ñ¥¹ÁÕÐÑåÁ”ô‰Ñ•áÐˆ¥ô‰…‘‘É•ÍÌˆÁ±…•¡½±‘•Èô‰e½ÕÈ…‘‘É•ÍÌˆÉ•ÅÕ¥É•ø(€€€€€€€€ð½Ü[Û‘™[˜Ú[™ÏÛÜ[Û‚ˆÜ[Û“[™ØØ\[™ÏÛÜ[Û‚ˆÜ[Û’\œšYØ][ÛÛÜ[Û‚ˆÜ[Û”›ÛÙš[™ÏÛÜ[Û‚ˆÜ[Û”™[[Ù[ÏÛÜ[Û‚ˆÜ[ÛY][Û˜[Ù\šXÙ\ÏÛÜ[Û‚ˆÜÙ[XÝ‚ˆÙ]‚ˆ]ˆÛ\ÜÏH™›Ü›KYÜ›Ý\‚ˆX™[›ÜH›Y\ÜØYÙH’ÝÈØ[ˆÙH[ÏÛX™[‚ˆ^\™XHYH›Y\ÜØYÙHˆXÙZÛ\H•[\ÈX›Ý][Ý\ˆ›Ú™XÝ‹‹ˆÝ^\™XO‚ˆÙ]‚ˆÛ\ÜÏH™›Ü›KXÛÛœÙ[’HYÜ™YHÈH™YHˆÈ\›\È	˜[\ÈÛÛ™][ÛœÏØOˆ›ÝšYYžHHÛÛ\[žKˆžH›ÝšY[™È^HÛ™H[X™\‹HYÜ™YHÈ™XÙZ]™H^Y\ÜØYÙ\Èœ›ÛHH\Ú[™\ÜËÜ‚ˆ]Ûˆ\OHœÝX›Z]ˆÛ\ÜÏH˜ˆ”ÝX›Z]Ø]Û‚ˆÙ›Ü›O‚ˆÙ]‚ˆ]ˆÛ\ÜÏH˜ÛÛXÝZ[XYÙH‚ˆ[YÈÜ˜ÏHšÎ‹ËÚ[XYÙ\Ë[œÜ\Ú˜ÛÛKÜÝËLMŒÍŒMÌMŒÍŒKMØYŽLÌŽÝÏMÌ	œONˆ[HÛÛœÝXÝ[Ûˆ‚ˆÙ]‚ˆÙ]‚ÜÙXÝ[Û‚‚KKHTÕSSÓ’PSÈKO‚ÙXÝ[ÛˆYH\Ý[[ÛšX[È‚ˆ]ˆÛ\ÜÏH\Ý[[ÛšX[ËZXY\ˆ‚ˆÛ\ÜÏHœÙXÝ[Û‹[X™[Ý\ÝÛY\ˆ™]šY]ÜÏÜ‚ˆˆÛ\ÜÏHœÙXÝ[Û‹]]HÝ›Û™Ï•Ú]Ý\ÜÝ›Û™Ïˆ˜[XX›HÝ\ÝÛY\œÈ[OœØ^HX›Ý]\ÏÙ[OÚ‚ˆÙ]‚ˆ]ˆÛ\ÜÏH\Ý[[ÛšX[ËYÜšY‚‚ˆ]ˆÛ\ÜÏH\Ý[[ÛšX[XØ\™‚ˆ    </form>
     </div>
     <div class="contact-image">
       <img src="https://images.unsplash.com/photo-1636057163661-7af808530684?w=700&q=80" alt="Construction">
