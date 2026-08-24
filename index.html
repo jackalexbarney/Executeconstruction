@@ -620,7 +620,7 @@
   });
 
   // Google Sheets endpoint — paste your Apps Script web app URL here
-  const SHEETS_URL = 'YOUR_APPS_SCRIPT_URL_HERE';
+  const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbyJjx24cGp2AveqWpeUlZuLA4HR05fvixx1zu0FFfq_iql-oUqVTYw2w-y5UsDl1wGqrw/exec';
 
   // Form submit handler
   async function handleSubmit(e) {
@@ -640,7 +640,7 @@
       btn.textContent = 'Sent! We\'ll be in touch.';
       btn.style.background = '#2a7a2a';
       btn.style.color = '#fff';
-    } catch {
+    } catch (err) {
       btn.textContent = 'Error — please try again';
       btn.disabled = false;
     }
