@@ -6,7 +6,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <meta name="description" content="Transform your property with our top-tier construction services. We specialize in basement finishing, home remodels, custom decks, landscaping, irrigation, fencing, concrete, roofing, and custom builds.">
-<title>Execute Construction - Utah's Best Home Remodels</title>
+<title>Execute Construction - California's Best Home Services</title>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -101,23 +101,29 @@
     min-height: 100vh;
     display: flex; align-items: center;
     padding-top: 72px;
-    background:
-      linear-gradient(to right, rgba(37,48,65,0.95) 55%, rgba(37,48,65,0.5)),
-      url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=1600&q=80') center/cover no-repeat;
+    background: url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=1600&q=80') center/cover no-repeat;
   }
-  .hero-inner { max-width: 680px; }
+  .hero-inner {
+    max-width: 780px;
+    background: rgba(20,30,44,0.55);
+    backdrop-filter: blur(2px);
+    padding: 48px 56px;
+    border-radius: 16px;
+  }
   .hero-eyebrow {
-    font-size: 0.85rem; font-weight: 600; letter-spacing: 0.2em;
-    text-transform: uppercase; color: var(--orange); margin-bottom: 16px;
+    font-size: 0.95rem; font-weight: 700; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--orange); margin-bottom: 20px;
   }
   .hero-title {
-    font-size: clamp(2.8rem, 6vw, 5rem);
-    font-weight: 900; line-height: 1.05;
+    font-size: clamp(3.5rem, 8vw, 6.5rem);
+    font-weight: 900; line-height: 1.0;
     margin-bottom: 28px;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.4);
   }
   .hero-title em { font-style: italic; color: var(--orange); }
   .hero-sub {
-    font-size: 1.1rem; color: var(--muted); margin-bottom: 40px; max-width: 480px;
+    font-size: 1.15rem; color: #d8e4ec; margin-bottom: 40px; max-width: 520px;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.5);
   }
 
   /* ── SERVICES ── */
@@ -125,8 +131,8 @@
   .services-header { text-align: center; margin-bottom: 60px; }
   .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 24px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
   }
   .service-card {
     overflow: hidden; border-radius: 14px;
@@ -192,22 +198,16 @@
   }
   .why-text { color: var(--muted); margin-bottom: 16px; line-height: 1.8; }
 
-  /* ── STATS BAR ── */
-  #stats {
-    background: var(--orange);
-    padding: 60px 5%;
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 40px; text-align: center;
-  }
-  .stat-item { display: flex; flex-direction: column; align-items: center; gap: 10px; }
-  .stat-icon { width: 48px; height: 48px; object-fit: contain; }
-  .stat-num { font-size: 2.5rem; font-weight: 900; color: #000; }
-  .stat-label { font-size: 0.85rem; font-weight: 700; color: rgba(0,0,0,0.7); text-transform: uppercase; letter-spacing: 0.08em; }
-
   /* ── CONTACT FORM ── */
-  #contact { background: var(--dark3); }
-  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-  .form-title { font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 800; margin-bottom: 8px; }
+  #contact { background: #f5f7fa; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+  .form-card {
+    background: var(--dark);
+    border-radius: 16px;
+    padding: 48px 40px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+  }
+  .form-title { font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 800; margin-bottom: 8px; color: var(--text); }
   .form-title strong { color: var(--orange); }
   .form-sub { color: var(--muted); margin-bottom: 36px; }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
@@ -217,8 +217,8 @@
   .form-group select,
   .form-group textarea {
     width: 100%;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.14);
     border-radius: var(--radius);
     color: var(--text);
     font-size: 0.95rem;
@@ -234,25 +234,26 @@
   .form-group select option { background: #1e1e1e; }
   .form-consent { font-size: 0.78rem; color: var(--muted); margin-bottom: 24px; }
   .form-consent a { color: var(--orange); }
-  .contact-image img { width: 100%; border-radius: 12px; object-fit: cover; height: 500px; }
+  .contact-image img { width: 100%; border-radius: 12px; object-fit: cover; height: 720px; }
 
   /* ── TESTIMONIALS ── */
   #testimonials { background: var(--dark2); text-align: center; }
   .testimonials-header { margin-bottom: 56px; }
   .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
   .testimonial-card {
-    background: var(--dark3);
-    border: 1px solid rgba(240,85,35,0.15);
+    background: #fff;
+    border: 1px solid #e8edf2;
     border-radius: 12px; padding: 32px;
     text-align: left;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
   }
   .testimonial-quote {
     font-size: 2rem; color: var(--orange); line-height: 1; margin-bottom: 16px;
   }
-  .testimonial-text { color: var(--muted); line-height: 1.7; margin-bottom: 28px; font-size: 0.95rem; }
+  .testimonial-text { color: #5a6a7a; line-height: 1.7; margin-bottom: 28px; font-size: 0.95rem; }
   .testimonial-author { display: flex; align-items: center; gap: 14px; }
   .testimonial-avatar { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; }
-  .testimonial-name { font-weight: 700; font-size: 0.95rem; }
+  .testimonial-name { font-weight: 700; font-size: 0.95rem; color: var(--dark); }
   .testimonial-role { font-size: 0.78rem; color: var(--orange); }
 
   /* ── FOOTER ── */
@@ -301,15 +302,14 @@
       padding-left: 5%;
       padding-right: 5%;
     }
-    .hero-title { font-size: clamp(2.2rem, 10vw, 3.2rem); }
+    .hero-inner { padding: 32px 28px; }
+    .hero-title { font-size: clamp(2.4rem, 10vw, 3.8rem); }
     .hero-sub { font-size: 1rem; }
     .services-grid { grid-template-columns: 1fr; }
     .testimonials-grid { grid-template-columns: 1fr; }
     .contact-grid { grid-template-columns: 1fr; }
     .contact-image { display: none; }
-    #stats { grid-template-columns: repeat(3, 1fr); gap: 16px; padding: 48px 5%; }
-    .stat-num { font-size: 1.8rem; }
-    .stat-label { font-size: 0.72rem; }
+    .form-card { padding: 32px 24px; }
     .form-row { grid-template-columns: 1fr; }
     .footer-grid { grid-template-columns: 1fr; gap: 36px; }
     .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
@@ -339,7 +339,7 @@
 <!-- HERO -->
 <section id="hero">
   <div class="hero-inner">
-    <p class="hero-eyebrow">Utah's Best Choice For</p>
+    <p class="hero-eyebrow">California's Best Choice For</p>
     <h1 class="hero-title">
       <em>Home</em><br>Services
     </h1>
@@ -470,29 +470,10 @@
   </div>
 </section>
 
-<!-- STATS -->
-<div id="stats">
-  <div class="stat-item">
-    <img class="stat-icon" src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/6z8UkAx1PMMQKNGCvSVA/media/d8ba7cdf-8452-4f72-b3e6-c1892eb683a7.png" alt="">
-    <div class="stat-num">6,493</div>
-    <div class="stat-label">Insured People</div>
-  </div>
-  <div class="stat-item">
-    <img class="stat-icon" src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/6z8UkAx1PMMQKNGCvSVA/media/2bc80fe9-a078-4374-bd79-9631c2d49203.png" alt="">
-    <div class="stat-num">4,896</div>
-    <div class="stat-label">Happy Clients</div>
-  </div>
-  <div class="stat-item">
-    <img class="stat-icon" src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/6z8UkAx1PMMQKNGCvSVA/media/7d63b913-5c29-4bf1-a3cd-40effb6eaa2d.png" alt="">
-    <div class="stat-num">6,493</div>
-    <div class="stat-label">Handled Cases</div>
-  </div>
-</div>
-
 <!-- CONTACT FORM -->
 <section id="contact">
   <div class="contact-grid">
-    <div>
+    <div class="form-card">
       <p class="section-label">Get Started</p>
       <h2 class="form-title"><strong>Request</strong> a Free Estimate</h2>
       <p class="form-sub">Fill out the form below and we'll be in touch within 24 hours.</p>
@@ -596,7 +577,7 @@
   <div class="footer-grid">
     <div>
       <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/6z8UkAx1PMMQKNGCvSVA/media/651454626f444380473cd3da.png" alt="Execute Construction" class="footer-logo" style="height:52px;margin-bottom:20px;">
-      <p class="footer-desc">Utah's trusted construction partner. From basement finishing to full remodels, we deliver quality craftsmanship on every project.</p>
+      <p class="footer-desc">California's trusted construction partner. From basement finishing to full remodels, we deliver quality craftsmanship on every project.</p>
     </div>
     <div>
       <div class="footer-col-title">Contact Info</div>
@@ -610,7 +591,7 @@
     <div>
       <div class="footer-col-title">Location</div>
       <div class="footer-map">
-        <iframe src="https://maps.google.com/maps?width=300&height=220&hl=en&q=Southern+California&t=&z=7&ie=UTF8&iwloc=B&output=embed" title="Map of Southern California" loading="lazy"></iframe>
+        <iframe src="https://maps.google.com/maps?width=300&height=300&hl=en&ll=33.75,-118.1&z=8&ie=UTF8&iwloc=B&output=embed" title="Map showing San Diego to Los Angeles" loading="lazy"></iframe>
       </div>
     </div>
   </div>
