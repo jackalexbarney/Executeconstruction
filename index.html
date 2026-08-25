@@ -490,7 +490,7 @@
         </div>
         <div class="form-group">
           <label for="phone">Phone *</label>
-          <input type="tel" id="phone" name="phone" placeholder="(801) 000-0000" required>
+          <input type="tel" id="phone" name="phone" placeholder="(000) 000-0000" required>
         </div>
         <div class="form-group">
           <label for="address">Address *</label>
@@ -638,8 +638,8 @@
         body: JSON.stringify(data)
       });
       btn.textContent = 'Sent! We\'ll be in touch.';
-      btn.style.background = '#2a7a2a';
-      btn.style.color = '#fff';
+      btn.style.background = '#f07828';
+      btn.style.color = '#000';
     } catch {
       btn.textContent = 'Error — please try again';
       btn.disabled = false;
