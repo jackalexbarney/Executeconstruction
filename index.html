@@ -481,24 +481,24 @@
         <div class="form-row">
           <div class="form-group">
             <label for="fname">First Name *</label>
-            <input type="text" id="fname" placeholder="First name" required>
+            <input type="text" id="fname" name="fname" placeholder="First name" required>
           </div>
           <div class="form-group">
             <label for="lname">Last Name *</label>
-            <input type="text" id="lname" placeholder="Last name" required>
+            <input type="text" id="lname" name="lname" placeholder="Last name" required>
           </div>
         </div>
         <div class="form-group">
           <label for="phone">Phone *</label>
-          <input type="tel" id="phone" placeholder="(801) 000-0000" required>
+          <input type="tel" id="phone" name="phone" placeholder="(801) 000-0000" required>
         </div>
         <div class="form-group">
           <label for="address">Address *</label>
-          <input type="text" id="address" placeholder="Your address" required>
+          <input type="text" id="address" name="address" placeholder="Your address" required>
         </div>
         <div class="form-group">
           <label for="service">Services Offered *</label>
-          <select id="service" required>
+          <select id="service" name="service" required>
             <option value="" disabled selected>Select a service</option>
             <option>Basement Finishing</option>
             <option>Decking</option>
@@ -513,7 +513,7 @@
         </div>
         <div class="form-group">
           <label for="message">How can we help?</label>
-          <textarea id="message" placeholder="Tell us about your project..."></textarea>
+          <textarea id="message" name="message" placeholder="Tell us about your project..."></textarea>
         </div>
         <p class="form-consent">I agree to <a href="#">terms &amp; conditions</a> provided by the company. By providing my phone number, I agree to receive text messages from the business.</p>
         <button type="submit" class="btn">Submit</button>
@@ -640,7 +640,7 @@
       btn.textContent = 'Sent! We\'ll be in touch.';
       btn.style.background = '#2a7a2a';
       btn.style.color = '#fff';
-    } catch (err) {
+    } catch {
       btn.textContent = 'Error — please try again';
       btn.disabled = false;
     }
